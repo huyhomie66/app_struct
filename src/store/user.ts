@@ -1,6 +1,6 @@
 import {Thunk, Action, action, thunk} from 'easy-peasy';
 
-import {getConfig, getProfile} from 'api';
+import {getProfile} from 'api';
 
 interface UserModule {
   profile: any;
@@ -24,7 +24,6 @@ const user: UserModule = {
     try {
       setLoading(true);
       const res = await getProfile();
-
       setProfile(res);
       setLoading(false);
     } catch (error) {
