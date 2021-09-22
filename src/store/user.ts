@@ -1,6 +1,6 @@
 import {Thunk, Action, action, thunk} from 'easy-peasy';
 
-import {} from 'api';
+import {getConfig, getProfile} from 'api';
 
 interface UserModule {
   profile: any;
@@ -19,7 +19,18 @@ const user: UserModule = {
   setProfile: action((state, payload) => {
     state.profile = payload;
   }),
-  getProfile: thunk((actions, payload) => ({})),
+  getProfile: thunk(async (actions, payload) => {
+    const {setProfile, setLoading} = actions;
+    try {
+      setLoading(true);
+      const res = await getProfile();
+
+      setProfile(res);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  }),
 };
 
 export default user;

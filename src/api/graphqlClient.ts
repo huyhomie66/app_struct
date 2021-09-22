@@ -24,6 +24,6 @@ const createClient = ({uri}) => {
   return client;
 };
 
-export const userClient = createClient({
-  uri: '/users',
+export const appConfigClient = createClient({
+  uri: '/app',
 });
