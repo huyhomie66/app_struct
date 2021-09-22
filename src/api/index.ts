@@ -1,6 +1,6 @@
 import axios from './axiosInstance';
 import {appConfigClient} from './graphqlClient';
-import {configQuery} from './query';
+import {configQuery} from './querys';
 
 const getProfile = async () => {
   const res = await axios.get('/profile');
