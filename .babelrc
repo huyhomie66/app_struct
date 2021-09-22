@@ -1,0 +1,23 @@
+{
+  "presets": ["module:metro-react-native-babel-preset"],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "babel-plugin-fbt",
+    "babel-plugin-fbt-runtime",
+    [
+      "module-resolver",
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "root": ["./"],
+        "alias": {
+          "src": "./src"
+        }
+      }
+    ]
+  ]
+}
